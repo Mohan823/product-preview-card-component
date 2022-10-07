@@ -1,0 +1,285 @@
+/* Css Reset */
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+:root {
+    --clr-neutral-100: hsl(0, 0%, 100%);
+    --clr-neutral-700: hsl(228, 12%, 48%);
+    --clr-neutral-800: hsl(212, 21%, 14%);
+
+    --clr-accent-600: hsl(156, 42%, 18%);
+
+    --clr-primary-300: hsl(30, 38%, 92%);
+    --clr-primary-400: hsl(158, 36%, 37%);
+
+    --ff-secondary: 'Montserrat', sans-serif;
+    --ff-primary: 'Fraunces', serif;
+
+    --fs-25: 0.5rem;
+    --fs-50: 0.625rem;
+    --fs-100: 0.875rem;
+    --fs-200: 1.4rem;
+
+    --fw-500: 500;
+    --fw-700: 700;
+
+    --size-100: 0.5rem;
+    --size-200: 1rem;
+    --size-300: 1.4rem;
+}
+
+/* general class */
+
+body {
+    font-family: var(--ff-primary);
+    background-color: var(--clr-primary-300);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+p,
+.price-old {
+    font-family: var(--ff-secondary);
+    font-size: var(--fs-50);
+    color: var(--clr-neutral-700);
+    line-height: var(--size-200);
+}
+
+p:nth-child(1) {
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: var(--fs-25);
+}
+
+span {
+    display: inline-block;
+}
+
+/* button */
+
+button {
+    min-width: 100%;
+    background-color: var(--clr-primary-400);
+    border-radius: 0.3125em;
+    padding: var(--size-100);
+    cursor: pointer;
+    border: none;
+    margin-bottom: 0;
+    transition: background-color 0.2s;
+}
+
+button span {
+    font-family: var(--ff-secondary);
+    font-size: var(--fs-50);
+    color: var(--clr-neutral-100);
+    font-weight: var(--fw-500);
+}
+
+button img {
+    width: 0.5rem;
+}
+
+button:is(:hover, :focus) {
+    background-color: var(--clr-accent-600);
+}
+
+button:active {
+    background-color: green;
+
+}
+
+/* Utility classes */
+
+.container {
+    display: grid;
+    grid-auto-flow: column;
+    background-color: var(--clr-neutral-100);
+    border-radius: var(--size-100);
+    max-width: 26rem;
+}
+
+.primary-heading {
+    font-family: var(--ff-primary);
+    font-size: var(--fs-200);
+    font-weight: var(--fw-700);
+    color: var(--clr-neutral-800);
+}
+
+.product-image img {
+    display: block;
+    width: 13rem;
+    border-radius: var(--size-100) 0 0 var(--size-100);
+}
+
+.product-about {
+    padding: var(--size-300);
+}
+
+.product-about>:not(:last-child) {
+    margin-bottom: var(--size-200);
+}
+
+.price-new {
+    font-size: var(--fs-200);
+    color: var(--clr-primary-400);
+}
+
+.price-old {
+    vertical-align: super;
+    margin-left: var(--size-100);
+    text-decoration: line-through;
+}
+
+/* media queries */
+
+@media (max-width: 24em) {
+    body {
+        margin: var(--size-200) auto var(--size-200);
+        max-width: 95%;
+    }
+
+    .product-image img {
+        min-width: 100%;
+        border-radius: var(--size-100) var(--size-100) 0 0;
+    }
+
+    .container {
+        grid-auto-flow: row;
+    }
+
+    .product-about {
+        padding: var(--size-200);
+    }
+}
